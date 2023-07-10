@@ -23,4 +23,14 @@
         <Folder Include="Repository\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="wwwroot\css\bootstrap\.DS_Store" />
+      <Content Include="wwwroot\fonts\.DS_Store" />
+      <Content Include="wwwroot\scss\.DS_Store" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="wwwroot\js\index.js" />
+    </ItemGroup>
+
 </Project>
