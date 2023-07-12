@@ -14,7 +14,13 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddRazorPages(options =>
+{
+    // options.Conventions.AuthorizePage("/Contact");
+    options.Conventions.AuthorizeAreaFolder("admin","/");
+    // options.Conventions.AllowAnonymousToPage("/Private/PublicPage");
+    // options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
+});
 // Add depenjence injection repository
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 var app = builder.Build();
@@ -46,10 +52,17 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
-app.MapControllerRoute(
-    "default",
-    "{controller=Home}/{action=Index}/{id?}");
+//mapping endpoint
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        "default",
+        "{controller=Home}/{action=Index}/{id?}");
+    endpoints.MapAreaControllerRoute(
+        "admin",
+        "admin",
+        "{area}/{controller}/{action}/{id?}");
+});
 app.MapRazorPages();
 
 app.Run();

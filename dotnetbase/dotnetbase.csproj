@@ -20,6 +20,9 @@
 
     <ItemGroup>
         <Folder Include="Appservice\" />
+        <Folder Include="Areas\admin\Controllers" />
+        <Folder Include="Areas\admin\Data" />
+        <Folder Include="Areas\admin\Models" />
         <Folder Include="Repository\" />
     </ItemGroup>
 
@@ -31,6 +34,10 @@
 
     <ItemGroup>
       <None Include="wwwroot\js\index.js" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Include="wwwroot\assets\vendors\tinymce\tinymce.d.ts" />
     </ItemGroup>
 
 </Project>
