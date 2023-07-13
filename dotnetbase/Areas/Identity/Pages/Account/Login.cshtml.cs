@@ -4,6 +4,7 @@
 #nullable disable
 
 using System.ComponentModel.DataAnnotations;
+using dotnetbase.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

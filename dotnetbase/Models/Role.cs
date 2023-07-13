@@ -14,7 +14,8 @@ public sealed class Role
         DisplayName = displayName;
     }
 
-    public ICollection<Permission> Permissions { get; set; }
+    public ICollection<RolePermission> RolePermissions { get; set; } = new List<RolePermission>();
+    public ICollection<Permission> Permissions { get; set; } = new List<Permission>();
     public ICollection<ApplicationUser> Users { get; set; }
     
 }

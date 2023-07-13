@@ -1,4 +1,6 @@
 using dotnetbase.Data;
+using dotnetbase.dependency;
+using dotnetbase.Models;
 using dotnetbase.Repository;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +13,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+    {
+        options.SignIn.RequireConfirmedAccount = true;
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages(options =>
@@ -21,8 +26,9 @@ builder.Services.AddRazorPages(options =>
     // options.Conventions.AllowAnonymousToPage("/Private/PublicPage");
     // options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
 });
-// Add depenjence injection repository
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+// Add dependence injection repository
+Dependencyinjection.Add(builder.Services);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

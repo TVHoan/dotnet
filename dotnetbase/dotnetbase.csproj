@@ -23,6 +23,7 @@
         <Folder Include="Areas\admin\Controllers" />
         <Folder Include="Areas\admin\Data" />
         <Folder Include="Areas\admin\Models" />
+        <Folder Include="Areas\Identity\Data" />
         <Folder Include="Repository\" />
     </ItemGroup>
 

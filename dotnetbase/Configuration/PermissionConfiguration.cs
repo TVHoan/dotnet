@@ -10,6 +10,9 @@ public class PermissionConfiguration : IEntityTypeConfiguration<Permission>
     public void Configure(EntityTypeBuilder<Permission> builder)
     {
         builder.HasKey(p => p.Id);
+        builder.HasMany(x => x.Roles)
+            .WithMany(x => x.Permissions)
+            .UsingEntity<RolePermission>();
         IEnumerable<Permission> permissions = typeof(PermissionDefine).GetFields()
             .Select(x => new Permission
             {

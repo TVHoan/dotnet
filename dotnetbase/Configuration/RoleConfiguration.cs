@@ -10,7 +10,7 @@ internal class RoleConfiguration: IEntityTypeConfiguration<Role>
     {   
         builder.HasKey(x => x.Id);
         builder.HasMany(x => x.Permissions)
-            .WithMany(x=>x)
+            .WithMany(e=>e.Roles)
             .UsingEntity<RolePermission>();
         builder.HasData(Role.Register);
     }
