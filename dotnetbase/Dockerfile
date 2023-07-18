@@ -10,7 +10,7 @@ WORKDIR /src
 COPY ["dotnetbase.csproj", "/"]
 RUN dotnet restore "/dotnetbase.csproj"
 COPY . .
-WORKDIR "/src/dotnetbase"
+WORKDIR "/src"
 RUN dotnet build "dotnetbase.csproj" -c Release -o /app/build
 
 FROM build AS publish
