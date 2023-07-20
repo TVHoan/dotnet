@@ -1,3 +1,4 @@
+using dotnetbase.Contracts;
 using dotnetbase.Data;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using dotnetbase.Contracts;
 using dotnetbase.Data;
 using dotnetbase.Models;
 using dotnetbase.Repository;
